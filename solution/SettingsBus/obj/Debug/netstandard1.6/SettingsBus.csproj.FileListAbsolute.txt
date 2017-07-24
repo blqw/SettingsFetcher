@@ -1,0 +1,5 @@
+C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\bin\Debug\netstandard1.6\blqw.SettingsBus.deps.json
+C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\bin\Debug\netstandard1.6\blqw.SettingsBus.dll
+C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\obj\Debug\netstandard1.6\SettingsBus.csprojResolveAssemblyReference.cache
+C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\obj\Debug\netstandard1.6\SettingsBus.csproj.CoreCompileInputs.cache
+C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\obj\Debug\netstandard1.6\SettingsBus.AssemblyInfo.cs
