@@ -1,8 +1,0 @@
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\bin\Debug\netstandard2.0\blqw.SettingsBus.deps.json
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\bin\Debug\netstandard2.0\blqw.SettingsBus.dll
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\bin\Debug\netstandard2.0\blqw.SettingsBus.pdb
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\obj\Debug\netstandard2.0\SettingsBus.csproj.CoreCompileInputs.cache
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\obj\Debug\netstandard2.0\SettingsBus.AssemblyInfo.cs
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\obj\Debug\netstandard2.0\blqw.SettingsBus.dll
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\obj\Debug\netstandard2.0\blqw.SettingsBus.pdb
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\obj\Debug\netstandard2.0\SettingsBus.csprojResolveAssemblyReference.cache

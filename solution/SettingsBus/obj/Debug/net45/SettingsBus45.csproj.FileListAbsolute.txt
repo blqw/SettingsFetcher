@@ -1,9 +1,0 @@
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\bin\Debug\net45\blqw.SettingsBus.dll
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\bin\Debug\net45\blqw.SettingsBus.pdb
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\bin\Debug\net45\System.ComponentModel.Primitives.dll
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\bin\Debug\net45\System.ComponentModel.TypeConverter.dll
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\obj\Debug\net45\SettingsBus45.csprojResolveAssemblyReference.cache
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\obj\Debug\net45\SettingsBus45.csproj.CoreCompileInputs.cache
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\obj\Debug\net45\SettingsBus45.AssemblyInfo.cs
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\obj\Debug\net45\blqw.SettingsBus.dll
-C:\Users\blqw\Source\Repos\SettingsBus\solution\SettingsBus\obj\Debug\net45\blqw.SettingsBus.pdb
