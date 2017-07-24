@@ -1,9 +1,0 @@
-C:\Users\blqw\Source\Repos\SettingsBus\solution\Tests\obj\Debug\Tests.csproj.CoreCompileInputs.cache
-C:\Users\blqw\Source\Repos\SettingsBus\solution\Tests\bin\Debug\Tests.exe.config
-C:\Users\blqw\Source\Repos\SettingsBus\solution\Tests\bin\Debug\Tests.exe
-C:\Users\blqw\Source\Repos\SettingsBus\solution\Tests\bin\Debug\Tests.pdb
-C:\Users\blqw\Source\Repos\SettingsBus\solution\Tests\bin\Debug\blqw.SettingsBus.dll
-C:\Users\blqw\Source\Repos\SettingsBus\solution\Tests\bin\Debug\blqw.SettingsBus.pdb
-C:\Users\blqw\Source\Repos\SettingsBus\solution\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
-C:\Users\blqw\Source\Repos\SettingsBus\solution\Tests\obj\Debug\Tests.exe
-C:\Users\blqw\Source\Repos\SettingsBus\solution\Tests\obj\Debug\Tests.pdb
