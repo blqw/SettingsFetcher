@@ -12,22 +12,16 @@ namespace Tests
     {
         static void Main(string[] args)
         {
-            var a = new Settings();
-            Console.WriteLine(a.DateTime);
+            var settings = new Settings();
+            Console.WriteLine(settings.DateTime);
+            Console.WriteLine(settings.Url);
         }
     }
-
+    
     class Settings
     {
-        public Settings()
-        {
-            
-            SettingsBus.Fill(new SettingsBusArgs
-            {
-                Getter = name => ConfigurationManager.AppSettings[name]
-            }, null, this);
-
-        }
-        public DateTime DateTime { get; set; }
+        public Settings() => SettingsBus.Fill(this);
+        public DateTime DateTime { get; private set; }
+        public Uri Url { get; private set; }
     }
 }

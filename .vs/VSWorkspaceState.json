@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\solution",
-    "\\solution\\SettingsBus"
+    "\\solution\\SettingsBus",
+    "\\solution\\Tests"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\solution\\SettingsBus\\SettingsBusContext.cs",
   "PreviewInSolutionExplorer": false
 }

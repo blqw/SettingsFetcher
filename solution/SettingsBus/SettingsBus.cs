@@ -20,9 +20,12 @@ namespace blqw
         public static void Fill(string prefix, object instanceOrType)
             => Fill((ISettingsBusContext)null, prefix, instanceOrType);
 
+        public static void Fill<T>(string prefix)
+         => Fill((ISettingsBusContext)null, prefix, typeof(T));
+
         public static void Fill(ISettingsBusArgs args, string prefix, object instanceOrType)
             => Fill(new SettingsBusContext(args?.Getter, args?.Converter, args?.JoinName), prefix, instanceOrType);
-        
+
         public static void Fill(ISettingsBusContext context, string prefix, object instance)
         {
             if (instance == null)
@@ -54,11 +57,11 @@ namespace blqw
             {
                 type = instance.GetType().GetTypeInfo();
             }
-            
+
             var isStatic = instance == null;
             foreach (var prop in type.DeclaredProperties)
             {
-                if (prop.CanWrite && prop.SetMethod.IsPublic && prop.SetMethod.IsStatic == isStatic)
+                if (prop.CanWrite && prop.SetMethod.IsStatic == isStatic)
                 {
                     var value = context.GetSetting(prefix, prop.Name, prop.PropertyType);
                     if (value != null)
@@ -69,7 +72,7 @@ namespace blqw
             }
         }
 
-#if netfw
+#if NET45
         public static void Fill(ISettingsBusArgs args, object instanceOrType)
          => Fill(new SettingsBusContext(args?.Getter, args?.Converter, args?.JoinName), instanceOrType);
 
@@ -77,21 +80,23 @@ namespace blqw
         {
             if (instanceOrType is TypeInfo info)
             {
-                Fill(info.GetCustomAttribute<System.Configuration.SettingsGroupNameAttribute>()?.GroupName, info);
+                Fill(context, info.GetCustomAttribute<System.Configuration.SettingsGroupNameAttribute>()?.GroupName, info);
             }
             else if (instanceOrType is Type type)
             {
-                Fill(type.GetCustomAttribute<System.Configuration.SettingsGroupNameAttribute>()?.GroupName, type.GetTypeInfo());
+                Fill(context, type.GetCustomAttribute<System.Configuration.SettingsGroupNameAttribute>()?.GroupName, type.GetTypeInfo());
             }
             else if (instanceOrType != null)
             {
-                Fill(_context, instanceOrType.GetType().GetTypeInfo().GetCustomAttribute<System.Configuration.SettingsGroupNameAttribute>()?.GroupName, instanceOrType);
+                Fill(context, instanceOrType.GetType().GetTypeInfo().GetCustomAttribute<System.Configuration.SettingsGroupNameAttribute>()?.GroupName, instanceOrType);
             }
         }
 
         public static void Fill(object instanceOrType)
          => Fill((ISettingsBusContext)null, instanceOrType);
 
+        public static void Fill<T>()
+         => Fill((ISettingsBusContext)null, typeof(T));
 #endif
     }
 }

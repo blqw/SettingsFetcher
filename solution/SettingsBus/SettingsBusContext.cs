@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -36,21 +37,26 @@ namespace blqw
             {
                 if (conversionType == typeof(Guid))
                 {
-                    if (Guid.TryParse(s, out var guid))
+                    if (Guid.TryParse(s.Trim(), out var guid))
                     {
                         return guid;
                     }
                 }
                 else if (conversionType == typeof(TimeSpan))
                 {
-                    if (TimeSpan.TryParse(s, out var time))
+                    if (TimeSpan.TryParse(s.Trim(), out var time))
                     {
                         return time;
                     }
                 }
                 else if (conversionType == typeof(Uri))
                 {
-                    if (Uri.TryCreate(s, UriKind.RelativeOrAbsolute, out var uri))
+                    var s1 = s.Trim();
+                    if (s1.Length > 2 && s1[0] == '/' && s1[1] == '/')
+                    {
+                        s1 = "http:" + s1;
+                    }
+                    if (Uri.TryCreate(s1, UriKind.RelativeOrAbsolute, out var uri))
                     {
                         return uri;
                     }
@@ -63,11 +69,7 @@ namespace blqw
 #if NET45
             => System.Configuration.ConfigurationManager.AppSettings[name];
 #else
-        {
-            var xml = new XmlDocument();
-            var text = File.ReadAllText(Path.GetDirectoryName("./app.config"));
-            xml.LoadXml(text);
-        }
+            => throw new NotImplementedException();
 #endif
 
 
