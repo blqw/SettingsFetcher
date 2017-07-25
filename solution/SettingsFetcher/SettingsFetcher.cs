@@ -55,6 +55,19 @@ namespace blqw
         public static void Fill(ISettingsFetcherArgs args, string groupName, object instanceOrType)
             => FillImpl(new SettingsFetcherMethod(args?.Getter, args?.Converter, args?.JoinName), groupName, instanceOrType);
 
+        /// <summary>
+        /// 将设置值填充到指定对象的属性中
+        /// </summary>
+        /// <param name="action">自定义参数操作</param>
+        /// <param name="groupName">设置组的名称, 没有可以为null</param>
+        /// <param name="instanceOrType">实体对象(设置实例属性)或类型对象(静态属性)</param>
+        public static void Fill(Action<SettingsFetcherArgs> action, string groupName, object instanceOrType)
+        {
+            var args = new SettingsFetcherArgs();
+            action?.Invoke(args);
+            FillImpl(new SettingsFetcherMethod(args.Getter, args.Converter, args.JoinName), groupName, instanceOrType);
+        }
+
         private static void FillImpl(SettingsFetcherMethod method, string groupName, object instance)
         {
             if (instance == null)
