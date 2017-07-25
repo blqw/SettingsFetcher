@@ -10,18 +10,17 @@ using System.Xml;
 namespace blqw
 {
     /// <summary>
-    /// 设置总线上下文
+    /// 设置提取器方法提供程序
     /// </summary>
-    public class SettingsBusContext : ISettingsBusContext
+    sealed class SettingsFetcherMethod
     {
-        public static readonly SettingsBusContext Default = new SettingsBusContext(null, null, null);
         public Func<string, object> Getter { get; }
 
         public Func<object, Type, object> Converter { get; }
 
         public Func<string, string, string> JoinName { get; }
 
-        public SettingsBusContext(Func<string, object> getter, Func<object, Type, object> converter, Func<string, string, string> joinName)
+        public SettingsFetcherMethod(Func<string, object> getter, Func<object, Type, object> converter, Func<string, string, string> joinName)
         {
             Getter = getter;
             Converter = converter;
@@ -69,7 +68,7 @@ namespace blqw
 #if NET45
             => System.Configuration.ConfigurationManager.AppSettings[name];
 #else
-            => throw new NotImplementedException();
+            => throw new NotImplementedException("请设置Getter参数");
 #endif
 
 
@@ -77,11 +76,16 @@ namespace blqw
         {
             name = (JoinName ?? JoinNameImpl)(group, name);
             var value = (Getter ?? GetterImpl)(name);
-            if (value != null)
+            if (value == null)
             {
-                value = (Converter ?? ConvertImpl)(value, conversionType);
+                return null;
             }
-            return value;
+            var val = (Converter ?? ConvertImpl)(value, conversionType);
+            if (value == val)
+            {
+                val = ConvertImpl(value, conversionType);
+            }
+            return val;
         }
     }
 }

@@ -1,8 +1,8 @@
-# SettingsBus
+# SettingsFetcher
 用于快速操作设置
 
 ## nuget
-> blqw.SettingsBus
+> Install-Package blqw.SettingsFetcher
 
 ## 用法
 
@@ -22,7 +22,7 @@
 ```cs
 class Settings
 {
-    public Settings() => SettingsBus.Fill(this);
+    public Settings() => SettingsFetcher.Fill(this);
     public DateTime DateTime { get; private set; }
     public Uri Url { get; private set; }
 }
@@ -48,7 +48,7 @@ class Program
 ```cs
 static class Settings
 {
-    static Settings() => SettingsBus.Fill(typeof(Settings));
+    static Settings() => SettingsFetcher.Fill(typeof(Settings));
     public static DateTime DateTime { get; private set; }
     public static Uri Url { get; private set; }
 }
@@ -74,7 +74,7 @@ class Program
 [SettingsGroupName("mydemo")]
 static class Settings
 {
-    static Settings() => SettingsBus.Fill(typeof(Settings));
+    static Settings() => SettingsFetcher.Fill(typeof(Settings));
     public static DateTime DateTime { get; private set; }
     public static Uri Url { get; private set; }
 }
@@ -100,7 +100,7 @@ class Program
 [SettingsGroupName("mydemo")]
 static class Settings
 {
-    static Settings() => SettingsBus.Fill(new SettingsBusArgs
+    static Settings() => SettingsFetcher.Fill(new SettingsFetcherArgs
     {
         JoinName = (pre, name) => pre == null ? name : $"{pre}@{name}"
     }, this);
@@ -127,7 +127,7 @@ class Program
 ```cs
 static class Settings
 {
-    static Settings() => SettingsBus.Fill(new SettingsBusArgs
+    static Settings() => SettingsFetcher.Fill(new SettingsFetcherArgs
     {
         Converter = (value, type) => Json.ToObject(value, type)
     }, this);
@@ -147,7 +147,7 @@ class Program
 ```cs
 static class Settings
 {
-    static Settings() => SettingsBus.Fill(new SettingsBusArgs
+    static Settings() => SettingsFetcher.Fill(new SettingsFetcherArgs
     {
         Getter = name =>
         {

@@ -20,7 +20,7 @@ namespace Tests
     
     class Settings
     {
-        public Settings() => SettingsBus.Fill(this);
+        public Settings() => SettingsFetcher.Fill(this);
         public DateTime DateTime { get; private set; }
         public Uri Url { get; private set; }
     }

@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.4;net45</TargetFrameworks>
+    <AssemblyName>blqw.SettingsBus</AssemblyName>
+    <RootNamespace>blqw</RootNamespace>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>blqw.SettingsFetcher</PackageId>
+    <Authors>blqw</Authors>
+    <Company>blqw</Company>
+    <Product>blqw.SettingsFetcher</Product>
+    <Description>用于快速操作设置</Description>
+    <Copyright>blqw</Copyright>
+    <PackageProjectUrl>https://github.com/blqw/SettingsFetcher</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/blqw/SettingsFetcher</RepositoryUrl>
+    <Version>1.0.0.1</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.4|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard1.4\blqw.SettingsBus.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard1.4|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard1.4\blqw.SettingsBus.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+
+</Project>

@@ -7,25 +7,22 @@ using System.Threading.Tasks;
 namespace blqw
 {
     /// <summary>
-    /// 设置总线参数
+    /// 设置提取器参数接口
     /// </summary>
-    public interface ISettingsBusArgs
+    public interface ISettingsFetcherArgs
     {
         /// <summary>
-        /// 获取设置值
+        /// 用于获取设置值的委托
         /// </summary>
         Func<string, object> Getter { get; }
 
         /// <summary>
-        /// 类型转换的方法
+        /// 用于类型转换的方法委托
         /// </summary>
-        /// <param name="value">设置值</param>
-        /// <param name="conversionType">要返回的对象的类型</param>
-        /// <returns></returns>
         Func<object, Type, object> Converter { get; }
 
         /// <summary>
-        /// 用于连接group和name的方法
+        /// 用于连接group和name的方法委托
         /// </summary>
         Func<string, string, string> JoinName { get; }
 
