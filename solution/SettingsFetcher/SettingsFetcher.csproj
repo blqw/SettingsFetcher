@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.4;net45</TargetFrameworks>
-    <AssemblyName>blqw.SettingsBus</AssemblyName>
+    <AssemblyName>blqw.SettingsFetcher</AssemblyName>
     <RootNamespace>blqw</RootNamespace>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>blqw.SettingsFetcher</PackageId>
