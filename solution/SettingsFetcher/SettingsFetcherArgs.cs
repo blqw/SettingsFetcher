@@ -21,5 +21,10 @@ namespace blqw
         /// 用于连接group和name的方法委托
         /// </summary>
         public Func<string, string, string> JoinName { get; set; }
+
+        /// <summary>
+        /// 是否抛出异常, 默认为true
+        /// </summary>
+        public bool ThrowException { get; set; } = true;
     }
 }

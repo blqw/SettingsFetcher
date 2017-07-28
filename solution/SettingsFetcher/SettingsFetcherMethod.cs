@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Reflection;
+using System;
 using System.Collections.Generic;
 
 using System.IO;
@@ -20,11 +21,20 @@ namespace blqw
 
         public Func<string, string, string> JoinName { get; }
 
-        public SettingsFetcherMethod(Func<string, object> getter, Func<object, Type, object> converter, Func<string, string, string> joinName)
+        public bool ThrowError { get; }
+
+        public SettingsFetcherMethod(ISettingsFetcherArgs args)
+            :this(args?.Getter, args?.Converter, args?.JoinName, args?.ThrowException ?? true)
+        {
+
+        }
+
+        public SettingsFetcherMethod(Func<string, object> getter, Func<object, Type, object> converter, Func<string, string, string> joinName, bool throwError)
         {
             Getter = getter;
             Converter = converter;
             JoinName = joinName;
+            ThrowError = throwError;
         }
 
         private string JoinNameImpl(string prefix, string name)
@@ -61,7 +71,18 @@ namespace blqw
                     }
                 }
             }
-            return Convert.ChangeType(value, conversionType);
+            try
+            {
+                return Convert.ChangeType(value, conversionType);
+            }
+            catch (Exception)
+            {
+                if (ThrowError)
+                {
+                    throw;
+                }
+            }
+            return conversionType.IsConstructedGenericType && conversionType.GetTypeInfo().IsValueType ? Activator.CreateInstance(conversionType) : null;
         }
 
         private object GetterImpl(string name)

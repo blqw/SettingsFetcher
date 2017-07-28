@@ -12,16 +12,25 @@ namespace Tests
     {
         static void Main(string[] args)
         {
-            var settings = new Settings();
-            Console.WriteLine(settings.DateTime);
-            Console.WriteLine(settings.Url);
+            Console.WriteLine(Settings.DateTime);
+            Console.WriteLine(Settings.Url);
+            Console.WriteLine(Settings.MaxLength);
+            Console.WriteLine(Settings.MinLength);
+            Console.WriteLine(Settings.Delay);
+            Console.WriteLine(Settings.Enable);
         }
     }
-    
-    class Settings
+
+    [SettingsGroupName("tests")]
+    static class Settings
     {
-        public Settings() => SettingsFetcher.Fill(this);
-        public DateTime DateTime { get; private set; }
-        public Uri Url { get; private set; }
+        static Settings() => SettingsFetcher.Fill(typeof(Settings), false);
+
+        public static DateTime DateTime { get; private set; } = new DateTime(1970, 1, 1);
+        public static Uri Url { get; private set; }
+        public static float MaxLength { get; private set; }
+        public static float MinLength { get; private set; }
+        public static int Delay { get; private set; }
+        public static bool Enable { get; private set; }
     }
 }

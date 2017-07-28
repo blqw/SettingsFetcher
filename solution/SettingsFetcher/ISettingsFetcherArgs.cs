@@ -26,5 +26,9 @@ namespace blqw
         /// </summary>
         Func<string, string, string> JoinName { get; }
 
+        /// <summary>
+        /// 是否抛出异常
+        /// </summary>
+        bool ThrowException { get; }
     }
 }
